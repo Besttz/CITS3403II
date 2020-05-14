@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>User: {{ user.username }}</h1>
+<hr>
+{% for post in posts %}
+    {% include 'post.html' %}
+    {% endfor %}
+{% endblock %}
+<p1>
+    {{ post.author.username }} says: <b>{{ post.body }}</b>
+</p1>
+<p2>
+    {% block content %}
+    <table>
+        <tr valign="top">
+            <td><h1>User: {{ user.username }}</h1></td>
+        </tr>
+    </table>
+    <hr>
+    {% for post in posts %}
+        {% include 'post.html' %}
+    {% endfor %}
+{% endblock %}
+</p2>
+{% endfor %}
+{% endblock %}
