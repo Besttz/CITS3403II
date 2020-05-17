@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--my css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='index.css') }}" />
+
+<div class="banner">
+  <img
+    src="https://www.uwastudentguild.com/img/asset/bWFpbi9CYW5uZXJzL2pvaW50aGVndWlsZF8xOTIweDQ4MC1iYW5uZXIuanBn?w=1920&h=700&fit=crop&s=370dfed8b34de01b6524ff058acf8c2b"
+    alt="Responsive image" />
+</div><br />
+<div class="container">
+  <div class="row" style="text-align: center;">
+    <div class="col-md-4">
+      <img src="https://www.uwastudentguild.com/assets/icons/clubsteal.svg" alt="icon" />
+      <p class="h2">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('account') }}">Vote Now</a>
+        {% else %}
+        <a href="{{ url_for('register') }}">Vote Now</a>
+        {% endif %}
+      </p>
+      <p>
+        Who are your favorite candidates? Vote for them!
+      </p>
+    </div>
+    <div class="col-md-4">
+      <img src="https://www.uwastudentguild.com/assets/discountsteal.svg" alt="icon" />
+      <p class="h2">
+        <a href="{{ url_for('candidate') }}">See Candidates</a>
+      </p>
+      <p>
+        Wonder who's here? Click here to know all the candidates!
+      </p>
+    </div>
+    <div class="col-md-4">
+      <img src="https://www.uwastudentguild.com/assets/icons/eventsteal.svg" alt="icon" />
+      <p class="h2">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('account') }}">My Vote</a>
+        {% else %}
+        <a href="{{ url_for('register') }}">My Vote</a>
+        {% endif %}
+      </p>
+      <p>
+        See your vote history and your answered questions!
+      </p>
+    </div>
+  </div>
+</div>
+<hr /><br />
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <p class="h2">
+        Welcome to Guild Voting System!
+      </p>
+      <p>
+        The Guild Elections, an annual event to elect the official Office Bearers and Ordinary Guild Councillors for the
+        next year.<br />
+        <ul>
+          <li>Hi students! See the candidates' infos and vote for your favorite candidates. When you are voting, feel
+            free to write questions to these candidates! Once you've done, check your vote history and see if your
+            questions have been answered!</li><br />
+          <li>If you are a candidate, see all your questions and answer them!</li>
+        </ul>
+      </p>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div><br />
+{% endblock content%}
