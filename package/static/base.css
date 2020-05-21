@@ -14,6 +14,13 @@ body{
   margin-top: 4px;
 }
 
+div#navbarToggler a, footer a, footer p {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
 nav#header,
 footer {
   background-color: rgb(35, 51, 130);
