@@ -17,11 +17,11 @@
         {% if current_user.is_authenticated %}
         <a href="{{ url_for('account') }}">Vote Now</a>
         {% else %}
-        <a href="{{ url_for('register') }}">Vote Now</a>
+        <a href="{{ url_for('login') }}">Vote Now</a>
         {% endif %}
       </p>
       <p>
-        Who are your favorite candidates? Vote for them!
+        Who are your favorite candidates? Sign up and vote for them!
       </p>
     </div>
     <div class="col-md-4">
@@ -39,11 +39,11 @@
         {% if current_user.is_authenticated %}
         <a href="{{ url_for('account') }}">My Vote</a>
         {% else %}
-        <a href="{{ url_for('register') }}">My Vote</a>
+        <a href="{{ url_for('login') }}">My Vote</a>
         {% endif %}
       </p>
       <p>
-        See your vote history and your answered questions!
+        See your vote history and modify your account information!
       </p>
     </div>
   </div>
@@ -61,12 +61,10 @@
       <p>
         The Guild Elections, an annual event to elect the official Office Bearers and Ordinary Guild Councillors for the
         next year.<br />
-        <ul>
-          <li>Hi students! See the candidates' infos and vote for your favorite candidates. When you are voting, feel
-            free to write questions to these candidates! Once you've done, check your vote history and see if your
-            questions have been answered!</li><br />
-          <li>If you are a candidate, see all your questions and answer them!</li>
-        </ul>
+      <ul>
+        <li>Hi students! See the candidates' infos, sign up and vote for your favorite candidates! Once you've done, check your vote history and see the newest updated ranking!</li><br />
+        <li>If you are an administrator, sign in and manage the candidates' and students' accounts!</li>
+      </ul>
       </p>
     </div>
     <div class="col-md-1"></div>
