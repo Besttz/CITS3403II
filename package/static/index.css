@@ -1,0 +1,20 @@
+
+.banner img {
+  height: auto;
+  width: 100%;
+}
+
+div.container p{
+  color: black;
+  font-weight: 500;
+}
+
+div.container p.h2{
+  color: rgb(35,51,130);
+  font-weight: 700;
+  text-align: center;
+}
+
+div.container ul {
+  text-align: justify;
+}
