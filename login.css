@@ -1,4 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,100);
+
 .box{
+    font-family: 'Josefin Sans', sans-serif;
     text-align: center; /*让div内部文字居中*/
     background-color: #fff;
     border-radius: 20px;
@@ -13,5 +16,5 @@
     bottom: 0;
 }
 body{
-    background-image: url("https://www.uwastudentguild.com/img/asset/bWFpbi9CYW5uZXJzL2NsdWJzb2NpZXR5XzE5MjB4NDgwLWJhbm5lci5qcGc=?w=1920&h=700&fit=crop&s=80fa6abd19fd26191de189dfb2cecb44");
+    background-image: url("https://www.uwastudentguild.com//assets/Banners/enrol_2.jpg");
 }
