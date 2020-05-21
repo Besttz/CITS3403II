@@ -1,0 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,100);
+
+body{
+  font-family: 'Josefin Sans', sans-serif;
+  color:black;
+  font-weight: 500;
+}
+
+nav#header, footer {
+  background-color: rgb(35,51,130);
+}
+
+div#navbarToggler a, footer a, footer p {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
