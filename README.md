@@ -36,6 +36,7 @@ The app should now be running on [http://localhost:5000](http://localhost:5000),
 `Flask-Login`
 `Flask-SQLAlchemy`
 `Flask-WTF`
+`email-validator`
 
 # Admin
 You can create an admin directly by **admin page** or uses:
