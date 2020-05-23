@@ -1,25 +1,56 @@
-from app import db, login
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+from datetime import datetime
+from app import db, login_manager, admin
+from flask_login import UserMixin, current_user
+from flask_admin.contrib.sqla import ModelView
+from flask import url_for, redirect, abort, request
 
-class User(UserMixin, db.Model):
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
-    about_me = db.Column(db.String(140))
-    last_seen = db.Column(db.Datetime, defult=datetime.utcnow)
-
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    image_file = db.Column(db.String(20), nullable=False,
+                           default='default.jpg')
+    password = db.Column(db.String(60), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)
+    preference = db.Column(db.Integer, db.ForeignKey('candidate.id'))
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return f"User('{self.username}', '{self.email}', '{self.image_file}', '{self.preference}')"
 
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
 
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+class Candidate(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    description = db.Column(db.String(120), nullable=False)
+    bevoted_id = db.relationship('User', backref='candidate', lazy=True)
 
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
+    def __repr__(self):
+        return f"Candidate('{self.name}', '{self.email}')"
+
+
+# admin.add_view(ModelView(User, db.session))
+# admin.add_view(ModelView(Candidate, db.session))
+
+class MyModelView(ModelView):
+    def is_accessible(self):
+        try:
+            if current_user.is_admin == True:
+                return current_user.is_authenticated
+            else:
+                return abort(403)
+        except AttributeError:
+            return abort(403)
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for('login'))
+
+
+admin.add_view(MyModelView(User, db.session))
+admin.add_view(MyModelView(Candidate, db.session))

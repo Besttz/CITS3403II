@@ -2,8 +2,8 @@
 import unittest
 import os
 
-from package import db, app
-from package.models import User, Candidate
+from app import db, app
+from app.models import User, Candidate
 
 
 class TestCase(unittest.TestCase):

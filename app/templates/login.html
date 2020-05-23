@@ -1,23 +1,62 @@
 {% extends "base.html" %} {% block content %}
-<h1>Sign In</h1>
-<form action="" method="post" novalidate>
-  {{ form.hidden_tag() }}
-  <p>
-    {{ form.username.label }}<br />
-    {{ form.username(size=32) }}<br />
-    {% for error in form.username.errors %}
-    <span style="color: rgb(194, 106, 106);">[{{ error }}]</span>
-    {% endfor %}
-  </p>
-  <p>
-    {{ form.password.label }}<br />
-    {{ form.password(size=32) }}<br />
-    {% for error in form.password.errors %}
-    <span style="color: rgb(194, 106, 106);">[{{ error }}]</span>
-    {% endfor %}
-  </p>
-  <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-  <p>{{ form.submit() }}</p>
-</form>
-<p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
-{% endblock %}
+<!--my css -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static',filename='login.css') }}"
+/>
+
+<div class="box text-center">
+  <img
+    src="https://www.uwastudentguild.com/site/themes/uwastudentguild/img/uwa-student-guild_web.png"
+    alt=""
+    width="72"
+    height="72"
+  />
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Login</legend>
+      <div class="form-group">
+        {{ form.email.label(class="form-control-label")}} {% if
+        form.email.errors %} {{ form.email(class="form-control-lg form-control
+        is-invalid")}}
+
+        <div class="invalid-feedback">
+          {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.email(class="form-control-lg form-control")}} {%
+        endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label(class="form-control-label")}} {% if
+        form.password.errors %} {{ form.password(class="form-control-lg
+        form-control is-invalid")}}
+
+        <div class="invalid-feedback">
+          {% for error in form.password.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.password(class="form-control-lg form-control")}} {%
+        endif %}
+      </div>
+      <div class="form-check">
+        {{ form.remember(class="form-check-input") }} {{
+        form.remember.label(class="form-check-label") }}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-primary btn-block")}}
+    </div>
+  </form>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Need An Account?
+      <a class="ml-2" href="{{ url_for('register') }}"> Sign Up Now</a>
+    </small>
+  </div>
+</div>
+{% endblock content%}

@@ -1,18 +1,38 @@
-from flask import render_template, flash, redirect, url_for, request
-from app import app, db
-from app.forms import LoginForm, RegistrationForm
-from app.models import User
-from flask_login import current_user, login_user, logout_user,  login_required
-from werkzeug.urls import url_parse
-from datetime import datetime
-from app.forms import  EditProfileForm
+import os
+import secrets
+from flask import render_template, url_for, flash, redirect, request
+from app import app, db, bcrypt
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from app.models import User, Candidate
+from flask_login import login_user, current_user, logout_user, login_required
+from flask_admin.contrib.sqla import ModelView
 
 
 @app.route('/')
+@app.route('/home')
 @app.route('/index')
-@login_required
 def index():
-    return render_template('index1.html')
+    return render_template('index.html')
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+
+    form = RegistrationForm()
+    form.preference.choices = [(candidate.id, candidate.name)
+                               for candidate in Candidate.query.all()]
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(
+            form.password.data).decode("utf-8")
+        user = User(username=form.username.data, email=form.email.data,
+                    password=hashed_password, preference=form.preference.data)
+        db.session.add(user)
+        db.session.commit()
+        flash(f'Welcome {form.username.data}! You can Log in now!', 'success')
+        return redirect(url_for('login'))
+    return render_template('signup.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -21,64 +41,73 @@ def login():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('login'))
-        login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('index')
-        return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and user.is_admin:  # admin login
+            if form.password.data == user.password:
+                login_user(user, remember=form.remember.data)
+                flash("you have been logged in!", "success")
+                return redirect(url_for("admin.index"))
+            else:
+                flash("check you credentials", "danger")
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('index'))
+        else:
+            flash('Login Unsuccessful. Please check email and password', 'danger')
+    return render_template('login.html', form=form)
+
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash('Congratulations, you are now a registered user!')
-        return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
 
-@app.route('/user/<username>')
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/img', picture_fn)
+    form_picture.save(picture_path)
+    return picture_fn
+
+
+@app.route('/account', methods=['GET', 'POST'])
 @login_required
-def user(username):
-    user=User.query.filter_by(username=username).first_or_404()
-    posts =[
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
-    return render_template('user.html', user=user, posts=posts)
-
-@app.before_request
-def before_request():
-    if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow()
-        db.session.commit()
-
-@app.route('/edit_profile', methods=['GET', 'POST'])
-@login_required
-def edit_profile():
-    form = EditProfileForm()
+def account():
+    form = UpdateAccountForm()
+    form.preference.choices = [(candidate.id, candidate.name)
+                               for candidate in Candidate.query.all()]
     if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
         current_user.username = form.username.data
-        current_user.about_me = form.about_me.data
+        current_user.email = form.email.data
+        current_user.preference = form.preference.data
         db.session.commit()
-        flash('Your changes have been saved.')
-        return redirect(url_for('edit_profile'))
+        flash('your account has been updated!', 'success')
+        return redirect(url_for('account'))
     elif request.method == 'GET':
         form.username.data = current_user.username
-        form.about_me.data = current_user.about_me
-    return render_template('Profile editor', title='Edit Profile',
-                           form=form)
+        form.email.data = current_user.email
+    image_file = url_for('static', filename='img/' + current_user.image_file)
+    return render_template('account.html', title='account', image_file=image_file, form=form)
+
+
+@app.route('/candidate')
+def candidate():
+    can_name = []
+    can_value = []
+
+    for i in Candidate.query.all():
+        can_name.append(i.name)
+        can_value.append(len(i.bevoted_id))
+
+    rows = Candidate.query.all()
+    return render_template('candi_info.html',
+                           title='candidate info',
+                           rows=rows,
+                           can_name=can_name,
+                           can_value=can_value)

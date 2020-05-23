@@ -43,9 +43,9 @@ You can create an admin directly by **admin page** or uses:
 
 `python`
 
-`from package import db`
+`from app import db`
 
-`from package.models import User, Candidate`
+`from app.models import User, Candidate`
 
 `admin=User(username='',email='',password='',is_admin=True)`
 

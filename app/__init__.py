@@ -1,14 +1,21 @@
 from flask import Flask
-from config import Config
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_admin import Admin
+from flask_migrate import Migrate
+
+
+
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config['SECRET_KEY'] = 'noonecangetthepassword'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-login = LoginManager(app)
-login.login_view = 'login'
+bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info'
+admin = Admin(app, template_mode='bootstrap3')
 
-from app import routes, models
+from app import routes
