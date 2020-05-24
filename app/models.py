@@ -18,21 +18,50 @@ class User(db.Model, UserMixin):
                            default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
-    preference = db.Column(db.Integer, db.ForeignKey('candidate.id'))
+    is_can = db.Column(db.Boolean, default=False)
+    # preference = db.Column(db.Integer, db.ForeignKey('candidate.id'))
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.image_file}', '{self.preference}')"
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
 
 class Candidate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
     description = db.Column(db.String(120), nullable=False)
-    bevoted_id = db.relationship('User', backref='candidate', lazy=True)
+    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    groupID = db.Column(db.Integer, db.ForeignKey('group.id'))
+    positionID = db.Column(db.Integer, db.ForeignKey('position.id'))
+    # name = db.Column(db.String(20), unique=True, nullable=False)
+    # email = db.Column(db.String(120), unique=True, nullable=False)
+    # bevoted_id = db.relationship('User', backref='candidate', lazy=True)
 
     def __repr__(self):
         return f"Candidate('{self.name}', '{self.email}')"
+
+
+class Vote(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    candidateID = db.Column(db.Integer, db.ForeignKey('candidate.id'))
+
+
+class Group (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=True, nullable=False)
+
+
+class Position (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=True, nullable=False)
+    number = db.Column(db.Integer, nullable=False)
+
+class Message  (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(200), nullable=False)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    candidateID = db.Column(db.Integer, db.ForeignKey('candidate.id'))
+
 
 
 # admin.add_view(ModelView(User, db.session))
