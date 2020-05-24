@@ -7,14 +7,14 @@ from app.models import User
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[
+    username = StringField('Name', validators=[
                            DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[
                                      DataRequired(), EqualTo('password')])
-    preference = SelectField('Which candidates you like?', choices=[
-    ], validators=[DataRequired()], coerce=int)
+    # preference = SelectField('Which candidates you like?', choices=[
+    # ], validators=[DataRequired()], coerce=int)
     submit = SubmitField('Create an account')
 
     def validate_username(self, username):
