@@ -7,11 +7,11 @@
 />
 
 <div class="jumbotron text-center">
-    <h1>Manage User</h1>
-    <p>
-      Change User Permissions.
-    </p>
-  </div>
+  <h1>Manage User</h1>
+  <p>
+    Change User Permissions.
+  </p>
+</div>
 
 <div class="container box" style="text-align: left;">
   <div class="media">
@@ -55,33 +55,31 @@
       </div>
 
       <div class="form-group">
-        {{ form.isA.label(class="form-control-label")}} {% if
-        form.isA.errors %} {{ form.isA(class="form-control-lg form-control
-        is-invalid")}}
+        {{ form.isA.label(class="form-control-label")}} {% if form.isA.errors %}
+        {{ form.isA(class="form-control-lg form-control is-invalid")}}
 
         <div class="invalid-feedback">
           {% for error in form.isA.errors %}
           <span>{{ error }}</span>
           {% endfor %}
         </div>
-        {% else %} {{ form.isA(class="form-control-lg form-control")}} {%
-        endif %}
+        {% else %} {{ form.isA(class="form-control-lg form-control")}} {% endif
+        %}
       </div>
 
       <div class="form-group">
-        {{ form.isC.label(class="form-control-label")}} {% if
-        form.isC.errors %} {{ form.isC(class="form-control-lg form-control
-        is-invalid")}}
+        {{ form.isC.label(class="form-control-label")}} {% if form.isC.errors %}
+        {{ form.isC(class="form-control-lg form-control is-invalid")}}
 
         <div class="invalid-feedback">
           {% for error in form.isC.errors %}
           <span>{{ error }}</span>
           {% endfor %}
         </div>
-        {% else %} {{ form.isC(class="form-control-lg form-control")}} {%
-        endif %}
+        {% else %} {{ form.isC(class="form-control-lg form-control")}} {% endif
+        %}
       </div>
-      
+
       <div class="form-group">
         {{ form.picture.label() }} {{ form.picture(class="form-control-file") }}
         {% if form.picture.errors %} {% for error in form.picture.errors %}

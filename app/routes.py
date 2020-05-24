@@ -114,7 +114,10 @@ def candidate():
 
 
 @app.route('/adm')
+@login_required
 def admin():
+    if not current_user.is_admin:
+        return redirect(url_for('index'))
     u_name = []
     u_value = []
 
@@ -126,6 +129,7 @@ def admin():
 
 
 @app.route('/adm/user/<id>', methods=['GET', 'POST'])
+@login_required
 def adminUser(id):
     user = User.query.filter_by(id=id).first_or_404()
     form = ManageAccountForm()
