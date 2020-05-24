@@ -55,13 +55,6 @@ class Position (db.Model):
     name = db.Column(db.String(20), unique=True, nullable=False)
     number = db.Column(db.Integer, nullable=False)
 
-class Message  (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(200), nullable=False)
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
-    candidateID = db.Column(db.Integer, db.ForeignKey('candidate.id'))
-
 
 
 # admin.add_view(ModelView(User, db.session))
@@ -86,4 +79,3 @@ admin.add_view(MyModelView(Candidate, db.session))
 admin.add_view(MyModelView(Group, db.session))
 admin.add_view(MyModelView(Position, db.session))
 admin.add_view(MyModelView(Vote, db.session))
-admin.add_view(MyModelView(Message, db.session))

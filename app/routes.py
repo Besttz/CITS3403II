@@ -77,7 +77,7 @@ def save_picture(form_picture):
 @login_required
 def account():
     form = UpdateAccountForm()
-    form.preference.choices = [(candidate.id, candidate.name)
+    form.preference.choices = [(candidate.id)
                                for candidate in Candidate.query.all()]
     if form.validate_on_submit():
         if form.picture.data:
@@ -102,8 +102,8 @@ def candidate():
     can_value = []
 
     for i in Candidate.query.all():
-        can_name.append(i.name)
-        can_value.append(len(i.bevoted_id))
+        can_name.append(i.id)
+        # can_value.append(len(i.bevoted_id))
 
     rows = Candidate.query.all()
     return render_template('candi_info.html',
@@ -196,3 +196,9 @@ def adminUser(id):
     image_file = url_for('static', filename='img/' +
                          user.image_file)
     return render_template('manageuser.html', title='Manage User', image_file=image_file, form=form, user=user)
+
+@app.route('/vote', methods=['GET', 'POST'])
+@login_required
+def vote():
+    return render_template('vote.html', title='Vote Now')
+     
