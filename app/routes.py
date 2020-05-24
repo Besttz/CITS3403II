@@ -127,7 +127,9 @@ def admin():
     rows = User.query.all()
     rows2 = Group.query.all()
     rows3 = Candidate.query.all()
-    return render_template('admin.html', title='Administration', rows=rows,rows2=rows2,rows3=rows3, u_name=u_name)
+    rows4 = Position.query.all()
+    return render_template('admin.html', title='Administration', rows=rows, rows2=rows2, rows3=rows3,rows4=rows4, u_name=u_name)
+
 
 @app.route('/adm/newgroup', methods=['GET', 'POST'])
 @login_required
@@ -140,8 +142,35 @@ def newGroup():
         db.session.add(group)
         db.session.commit()
         return redirect(url_for('admin'))
-    return render_template('group.html', form=form)
+    return render_template('form.html', form=form)
 
+
+@app.route('/adm/newcan', methods=['GET', 'POST'])
+@login_required
+def newCan():
+    if not current_user.is_admin:
+        return redirect(url_for('index'))
+    form = CanForm()
+    if form.validate_on_submit():
+        can = Candidate(description=form.description.data, userID=form.userID.data,
+                    groupID=form.groupID.data, positionID=form.positionID.data)
+        db.session.add(can)
+        db.session.commit()
+        return redirect(url_for('admin'))
+    return render_template('form.html', form=form)
+
+@app.route('/adm/newpos', methods=['GET', 'POST'])
+@login_required
+def newPos():
+    if not current_user.is_admin:
+        return redirect(url_for('index'))
+    form = PosForm()
+    if form.validate_on_submit():
+        can = Position(name=form.name.data, number=form.number.data)
+        db.session.add(can)
+        db.session.commit()
+        return redirect(url_for('admin'))
+    return render_template('form.html', form=form)
 
 @app.route('/adm/user/<id>', methods=['GET', 'POST'])
 @login_required
@@ -162,8 +191,8 @@ def adminUser(id):
     elif request.method == 'GET':
         form.username.data = user.username
         form.email.data = user.email
-        form.isA.data  = user.is_admin
+        form.isA.data = user.is_admin
         form.isC.data = user.is_can
     image_file = url_for('static', filename='img/' +
                          user.image_file)
-    return render_template('manageuser.html', title='Manage User', image_file=image_file, form=form,user = user)
+    return render_template('manageuser.html', title='Manage User', image_file=image_file, form=form, user=user)

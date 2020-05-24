@@ -17,11 +17,11 @@
       <a class="nav-link" id="N1" href="#" onclick="FSelector(1)">Group</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="N2" href="#" onclick="FSelector(2)">Candidate</a>
+      <a class="nav-link" id="N2" href="#" onclick="FSelector(2)">Candidator Relationship</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="N3" href="#" onclick="FSelector(3)"
-        >Vote Record</a
+        >Position</a
       >
     </li>
   </ul>
@@ -81,7 +81,6 @@
     <table class="table">
       <tr>
         <th>ID</th>
-        <th>Name</th>
         <th>User ID</th>
         <th>Group ID</th>
         <th>Position ID</th>
@@ -90,9 +89,6 @@
       <tr>
         <td>
           {{ row.id }}
-        </td>
-        <td>
-          {{ row.userID.username }}
         </td>
         <td>{{ row.userID }}</td>
         <td>{{ row.groupID }}</td>
@@ -103,36 +99,35 @@
       </tr>
       {% endfor %}
     </table>
+    <a href="{{  url_for('newCan')  }}">
+      <button type="button" class="btn btn-primary btn-block">
+        Add New Candidator Info
+      </button>
+    </a>
   </div>
   <div id="3" style="display: none;">
     <table class="table">
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Email</th>
-        <th>Administrator</th>
-        <th>Candidator</th>
+        <th>Number</th>
+        
       </tr>
-      {% for row in rows %}
+      {% for row in rows4 %}
       <tr>
         <td>
-          <a href="/adm/user/{{ row.id }}">
             {{ row.id }}
-          </a>
         </td>
-        <td>{{ row.username }}</td>
-        <td>{{ row.email }}</td>
-        <td>
-          {{ row.is_admin }}
-          <!-- <button type="button" class="btn btn-primary btn-sm">Change</button> -->
-        </td>
-        <td>
-          {{ row.is_can }}
-          <!-- <button type="button" class="btn btn-primary btn-sm">Change</button> -->
-        </td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.number }}</td>
       </tr>
       {% endfor %}
     </table>
+    <a href="{{  url_for('newPos')  }}">
+      <button type="button" class="btn btn-primary btn-block">
+        Add New Position Info
+      </button>
+    </a>
   </div>
 </div>
 {% endblock content%}

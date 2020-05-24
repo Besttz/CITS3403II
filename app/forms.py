@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
+from wtforms import *
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from app.models import User
+from app.models import *
 # from app.routes import user
 
 
@@ -28,9 +28,38 @@ class RegistrationForm(FlaskForm):
         if email:
             raise ValidationError('Repeated email')
 
+
+class CanForm(FlaskForm):
+    userID = IntegerField('User ID', validators=[
+        DataRequired()])
+    groupID = IntegerField('Group ID', validators=[
+                           DataRequired()])
+    positionID = IntegerField('Position ID', validators=[
+        DataRequired()])
+    description = StringField('Description', validators=[
+        DataRequired(), Length(min=2, max=120)])
+
+    submit = SubmitField('Create an account')
+
+    # def validate_userID(self, username):
+    #     user = User.query.filter_by(id=id.data).first()
+    #     if not user:
+    #         raise ValidationError('Enter Vaild userID')
+
+    # def validate_groupID(self, username):
+    #     user = Group.query.filter_by(id=groupID.data).first()
+    #     if not user:
+    #         raise ValidationError('Enter Vaild groupID')
+
+    # def validate_positionID(self, username):
+    #     user = Position.query.filter_by(id=ositionID.data).first()
+    #     if not user:
+    #         raise ValidationError('Enter Vaild positionID')
+
+
 class GroupForm(FlaskForm):
     name = StringField('Name', validators=[
-                           DataRequired(), Length(min=2, max=20)])
+        DataRequired(), Length(min=2, max=20)])
     submit = SubmitField('Confirm')
 
     def validate_username(self, username):
@@ -38,6 +67,18 @@ class GroupForm(FlaskForm):
         if group:
             raise ValidationError('Repeated name')
 
+
+class PosForm(FlaskForm):
+    name = StringField('Name', validators=[
+        DataRequired(), Length(min=2, max=20)])
+    number = IntegerField('Total Number', validators=[
+        DataRequired()])
+    submit = SubmitField('Confirm')
+
+    def validate_username(self, username):
+        group = Position.query.filter_by(name=name.data).first()
+        if group:
+            raise ValidationError('Repeated name')
 
 
 class LoginForm(FlaskForm):
@@ -68,6 +109,7 @@ class UpdateAccountForm(FlaskForm):
             email = User.query.filter_by(email=email.data).first()
             if email:
                 raise ValidationError('Repeated email')
+
 
 class ManageAccountForm(FlaskForm):
     username = StringField('Name', validators=[
