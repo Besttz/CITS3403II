@@ -13,6 +13,15 @@ body{
   transition: all 0.5s;
   margin-top: 4px;
 }
+.footer {
+  /* position: fixed; */
+  /* left: 0;
+  bottom: 0;
+  width: 100%; */
+  /* background-color: red; */
+  /* color: white; */
+  text-align: center;
+}
 
 div#navbarToggler a, footer a, footer p {
   text-decoration: none;

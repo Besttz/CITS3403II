@@ -2,7 +2,7 @@ import os
 import secrets
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from app.forms import *
 from app.models import User, Candidate
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_admin.contrib.sqla import ModelView
@@ -111,3 +111,40 @@ def candidate():
                            rows=rows,
                            can_name=can_name,
                            can_value=can_value)
+
+
+@app.route('/adm')
+def admin():
+    u_name = []
+    u_value = []
+
+    for i in User.query.all():
+        u_name.append(i.username)
+        # can_value.append(len(i.bevoted_id))
+    rows = User.query.all()
+    return render_template('admin.html', title='Administration', rows=rows, u_name=u_name)
+
+
+@app.route('/adm/user/<id>', methods=['GET', 'POST'])
+def adminUser(id):
+    user = User.query.filter_by(id=id).first_or_404()
+    form = ManageAccountForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            user.image_file = picture_file
+        user.username = form.username.data
+        user.email = form.email.data
+        user.is_admin = form.isA.data
+        user.is_can = form.isC.data
+        db.session.commit()
+        flash('This account has been updated!', 'success')
+        return redirect('/adm')
+    elif request.method == 'GET':
+        form.username.data = user.username
+        form.email.data = user.email
+        form.isA.data  = user.is_admin
+        form.isC.data = user.is_can
+    image_file = url_for('static', filename='img/' +
+                         user.image_file)
+    return render_template('manageuser.html', title='Manage User', image_file=image_file, form=form,user = user)

@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="jumbotron text-center">
+  <h1>Administration</h1>
+  <p>
+    Welcome Administrtor! You can change user and candidate informations here.
+  </p>
+</div>
+<div class="container">
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">User</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Vote</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Vote Record</a>
+    </li>
+  </ul>
+  <div id="user">
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Administrator</th>
+        <th>Candidator</th>
+      </tr>
+      {% for row in rows %}
+      <tr>
+        <td>
+          <a href="/adm/user/{{ row.id }}"> 
+          {{ row.id }}
+          </a>
+        </td>
+        <td>{{ row.username }}</td>
+        <td>{{ row.email }}</td>
+        <td>
+          {{ row.is_admin }}
+          <!-- <button type="button" class="btn btn-primary btn-sm">Change</button> -->
+        </td>
+        <td>
+          {{ row.is_can }}
+          <!-- <button type="button" class="btn btn-primary btn-sm">Change</button> -->
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock content%}
