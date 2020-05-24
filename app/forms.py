@@ -28,6 +28,17 @@ class RegistrationForm(FlaskForm):
         if email:
             raise ValidationError('Repeated email')
 
+class GroupForm(FlaskForm):
+    name = StringField('Name', validators=[
+                           DataRequired(), Length(min=2, max=20)])
+    submit = SubmitField('Confirm')
+
+    def validate_username(self, username):
+        group = Group.query.filter_by(name=name.data).first()
+        if group:
+            raise ValidationError('Repeated name')
+
+
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])

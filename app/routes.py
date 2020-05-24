@@ -3,7 +3,7 @@ import secrets
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
 from app.forms import *
-from app.models import User, Candidate
+from app.models import *
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_admin.contrib.sqla import ModelView
 
@@ -125,7 +125,22 @@ def admin():
         u_name.append(i.username)
         # can_value.append(len(i.bevoted_id))
     rows = User.query.all()
-    return render_template('admin.html', title='Administration', rows=rows, u_name=u_name)
+    rows2 = Group.query.all()
+    rows3 = Candidate.query.all()
+    return render_template('admin.html', title='Administration', rows=rows,rows2=rows2,rows3=rows3, u_name=u_name)
+
+@app.route('/adm/newgroup', methods=['GET', 'POST'])
+@login_required
+def newGroup():
+    if not current_user.is_admin:
+        return redirect(url_for('index'))
+    form = GroupForm()
+    if form.validate_on_submit():
+        group = Group(name=form.name.data)
+        db.session.add(group)
+        db.session.commit()
+        return redirect(url_for('admin'))
+    return render_template('group.html', form=form)
 
 
 @app.route('/adm/user/<id>', methods=['GET', 'POST'])

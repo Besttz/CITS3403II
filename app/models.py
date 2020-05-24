@@ -83,3 +83,7 @@ class MyModelView(ModelView):
 
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Candidate, db.session))
+admin.add_view(MyModelView(Group, db.session))
+admin.add_view(MyModelView(Position, db.session))
+admin.add_view(MyModelView(Vote, db.session))
+admin.add_view(MyModelView(Message, db.session))

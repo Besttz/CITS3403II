@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_admin import Admin
 from flask_migrate import Migrate
+from flask_bootstrap import Bootstrap 
 
 
 
@@ -14,6 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
+bootstrap = Bootstrap(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 admin = Admin(app, template_mode='bootstrap3')
