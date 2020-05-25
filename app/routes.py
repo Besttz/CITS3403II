@@ -77,15 +77,12 @@ def save_picture(form_picture):
 @login_required
 def account():
     form = UpdateAccountForm()
-    form.preference.choices = [(candidate.id, candidate.name)
-                               for candidate in Candidate.query.all()]
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
             current_user.image_file = picture_file
         current_user.username = form.username.data
         current_user.email = form.email.data
-        current_user.preference = form.preference.data
         db.session.commit()
         flash('your account has been updated!', 'success')
         return redirect(url_for('account'))
@@ -114,7 +111,7 @@ def candidate():
 
 
 @app.route('/vote', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def vote():
     form = VoteForm()
     form.preference.choices = [(candidate.id, candidate.name)
@@ -123,6 +120,12 @@ def vote():
         current_user.preference = form.preference.data
         db.session.commit()
         flash('Thanks for your vote!', 'success')
-        return redirect(url_for('account'))
+        return redirect(url_for('myvote'))
     rows = Candidate.query.all()
     return render_template('vote.html', title='Vote Now',rows=rows, form=form)
+
+@app.route('/myvote', methods=['GET', 'POST'])
+@login_required
+def myvote():
+    row = Candidate.query.filter_by(id=current_user.preference).first()
+    return render_template('myvote.html', title='My Vote',row=row)

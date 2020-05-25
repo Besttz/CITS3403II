@@ -78,7 +78,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('account') }}">My vote</a>
+                <a class="nav-link" href="{{ url_for('myvote') }}">My vote</a>
               </li>
               {% if current_user.is_admin %}
               <li class="nav-item">
@@ -92,7 +92,7 @@
               {% if current_user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('account') }}"
-                  >Hello,{{current_user.username}}</a
+                  >Hello,  {{current_user.username}}</a
                 >
               </li>
               <li class="nav-item">

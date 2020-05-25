@@ -53,21 +53,7 @@
                 {% endif %}
             </div>
 
-            <div class="form-group">
-                {{ form.preference.label(class="form-control-label")}}
-                {% if form.preference.errors %}
-                {{ form.preference(class="form-control-lg form-control is-invalid")}}
-
-                <div class="invalid-feedback">
-                    {% for error in form.preference.errors %}
-                    <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-                {% else %}
-                {{ form.preference}}
-                {% endif %}
-            </div>
-
+            
             <div class="form-group">
                 {{ form.picture.label() }}
                 {{ form.picture(class="form-control-file") }}
