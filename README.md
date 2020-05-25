@@ -1,5 +1,5 @@
 # CITS3403 GUILD Voting System
-author:Haoran, Tommy, Zhenyu & Sabrina
+author: Haoran, Tommy, Zhenyu & Sabrina
 
 # Introduction of the application
 The application mainly provides 6 functions to the users -- Registration, Log in, Candidate info, Vote, Account and Admin.
