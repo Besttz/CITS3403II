@@ -129,3 +129,22 @@ def vote():
 def myvote():
     row = Candidate.query.filter_by(id=current_user.preference).first()
     return render_template('myvote.html', title='My Vote',row=row)
+
+@app.route('/can/<name>', methods=['GET', 'POST'])
+@login_required
+def can():
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('your account has been updated!', 'success')
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+    image_file = url_for('static', filename='img/' + current_user.image_file)
+    return render_template('account.html', title='account', image_file=image_file, form=form)

@@ -2,7 +2,12 @@
 {% block content %}
 <!--my css -->
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='account.css') }}" />
-
+<div class="jumbotron text-center">
+    <h1>My Page</h1>
+    <p>
+      Welcome to the profile page. You can modify your personal infomation here.
+    </p>
+  </div>
 <div class="container box" style="text-align: left;">
     <div class="media">
         <img class="rounded-circle account-img" src="{{ image_file }}" alt="">
