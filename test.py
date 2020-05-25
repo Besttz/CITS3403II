@@ -53,42 +53,42 @@ class TestCase(unittest.TestCase):
         response = self.app.get('/account', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
-    def register(self, username, email, password, confirm_password, preference):
+    def register(self, username, email, password, confirm_password):
 
         return self.app.post('/register',
                              data=dict(username=username, email=email,
-                                       password=password, confirm_password=confirm_password,
-                                       preference=preference),
+                                       password=password, confirm_password=confirm_password
+                                       ),
                              follow_redirects=True)
 
 # REGISTRATION FUNCTIONALITY TESTS
     # Tests a valid registration attempt
     def test_valid_user_registration(self):
         response = self.register('user', 'user@gmail.com',
-                                 'password', 'password', '1')
+                                 'password', 'password')
         self.assertEqual(response.status_code, 200)
 
     # Tests an invalid registration attempt where passwords do not match
     def test_invalid_registration_passwords(self):
         response = self.register("user", "grae@email.com",
-                                 "password", "invalid password", "1")
+                                 "password", "invalid password")
         self.assertEqual(response.status_code, 200)
 
     # Tests an invalid registration attempt where email is invalid
     def test_invalid_registration_email(self):
         # missing @ symbol
         response = self.register(
-            "user", "invalid email.com", "password", "password", "1")
+            "user", "invalid email.com", "password", "password")
         self.assertEqual(response.status_code, 200)
 
         # missing domain
         response = self.register(
-            "user", "invalid@email", "password", "password", "1")
+            "user", "invalid@email", "password", "password")
         self.assertEqual(response.status_code, 200)
 
         # invalid space inserted
         response = self.register(
-            "user", "invalid@ email.com", "password", "password", "1")
+            "user", "invalid@ email.com", "password", "password")
         self.assertEqual(response.status_code, 200)
 
     # Tests an invalid registration where the username and/or email are already taken
@@ -100,12 +100,12 @@ class TestCase(unittest.TestCase):
 
         # duplicate username
         response = self.register(
-            "existing_user", "user@email.com", "password", "password", "1")
+            "existing_user", "user@email.com", "password", "password")
         self.assertEqual(response.status_code, 200)
 
         # duplicate email
         response = self.register(
-            "user", "existing_user@email.com", "password", "password", "1")
+            "user", "existing_user@email.com", "password", "password")
         self.assertEqual(response.status_code, 200)
 
 
