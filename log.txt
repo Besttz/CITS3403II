@@ -1,0 +1,518 @@
+commit c3a1dccf25d2d2a79718d1d28b0fa6f9641d4f65
+Merge: e7e165d b3db836
+Author: Tommy <tommyzhangchina@gmail.com>
+Date:   Mon May 25 22:45:36 2020 +0800
+
+    Merge branch 'Temp' of https://github.com/Besttz/CITS3403II into Temp
+
+commit e7e165ded309db9d4e2e0e678413677d783a5cdd
+Author: Tommy <tommyzhangchina@gmail.com>
+Date:   Mon May 25 22:44:38 2020 +0800
+
+    Update 3.jpg
+
+commit b3db8363911501008a58743ce5663ba7fd375ee5
+Merge: 7b9612c adc1511
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 22:40:25 2020 +0800
+
+    Merge branch 'Temp' of github.com:Besttz/CITS3403II into Temp
+
+commit 7b9612ce309a083c568f87fa370be25681b2d7c2
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 22:38:38 2020 +0800
+
+    Update Myvote and index banner pic
+
+commit adc1511862b534b3963b942ea18c7c56467867dd
+Author: Tommy <tommyzhangchina@gmail.com>
+Date:   Mon May 25 22:38:04 2020 +0800
+
+    Banner Pic Update
+
+commit 97a9813beb7d337e4b6323eab49acec47072e433
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Mon May 25 22:20:26 2020 +0800
+
+    Update myvote.html
+
+commit 15e02acc543f0652b026fabcd15d32c5c16cffb3
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Mon May 25 22:09:02 2020 +0800
+
+    modify test.py
+
+commit 314561f7224209528432ca9f449b3b62fdaadae0
+Merge: fddf239 1638871
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 21:29:05 2020 +0800
+
+    Merge branch 'Temp' of github.com:Besttz/CITS3403II into Temp
+
+commit fddf2395dc7473fbe481fe6068fd66978a83a65e
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 21:29:01 2020 +0800
+
+    MyVote Page bug fixed
+
+commit 1638871e2767c30f71d611103ed82aab5ce4153c
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 21:21:14 2020 +0800
+
+    Update README.md
+
+commit bc2b89c2d80caa6d4a304b313da5081792559c22
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 21:20:04 2020 +0800
+
+    Update README.md
+
+commit 532b5c26def6e5db754ff46216981dc97ecaa634
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Mon May 25 21:19:04 2020 +0800
+
+    Update README.md
+
+commit 9897c764a23d125b15ec92697fa24a447e7739ba
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Mon May 25 21:15:10 2020 +0800
+
+    Update README.md
+
+commit caf163289cdda1252c174d1694b1dd33aa5a3697
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 21:12:57 2020 +0800
+
+    Update README.md
+
+commit 97f687e7cb23ecba83d65c04144b1f644d481d57
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 21:11:51 2020 +0800
+
+    Update README.md
+
+commit 0b3e6d18142c84d1430252342208bafcde6d878e
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 21:11:22 2020 +0800
+
+    Update README.md
+
+commit 7453655dc72f534b2d63e425d91620f6d4b14ee0
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 20:48:42 2020 +0800
+
+    Update myvote.html
+
+commit c33127e8be123047e1e2cc1f31b5efce273c4e37
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 20:47:40 2020 +0800
+
+    Update vote.html
+
+commit 29ecf0eb977e46def40ebc8a5cd943034fa8724e
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 20:45:28 2020 +0800
+
+    modify contents
+
+commit d426e6953c3a7c911322439cb09c15417e1f10e1
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 20:43:48 2020 +0800
+
+    Delete dcf885831f824737.png
+
+commit 6ba2f0b7eb7e715e203530eee680aea74acc4bf8
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 20:43:36 2020 +0800
+
+    Delete 344c4798e0256110.png
+
+commit 2aff7d4111df131f586ddc5b8b73584876514e78
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 20:41:56 2020 +0800
+
+    change imgs
+
+commit b95ade0a2c816190bd6988a9e1ddd9f4e186327c
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Mon May 25 20:40:51 2020 +0800
+
+    Add files via upload
+
+commit 145e705fa1d914d80d4d99b47eab66fccbe4a4ed
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 20:36:35 2020 +0800
+
+    Style Update
+
+commit 472ca5b68d5fdeeac0fd5ca6f199950ab6eab061
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 20:16:44 2020 +0800
+
+    Style Update
+
+commit 0048aa78105a6b6afc2b05be92082f63bb292805
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 19:41:30 2020 +0800
+
+    Carousal Added
+
+commit 19d88a7451800f9316ce8da0d4abd79c9dae35d2
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 19:13:29 2020 +0800
+
+    Small Change
+
+commit fa2800d3839c0981fdeceaf6acebb7731d5db862
+Merge: 3b6c5f6 072e86d
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 16:28:32 2020 +0800
+
+    Merge branch 'Temp' of github.com:Besttz/CITS3403II into Temp
+
+commit 072e86d6943df35557bad3fb4d2927ac51d4a415
+Author: Tommy <tommyzhangchina@gmail.com>
+Date:   Mon May 25 16:28:07 2020 +0800
+
+    Add Image
+
+commit 3b6c5f6137fe0c595a228e56e14df3c8b4b5f0b6
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 15:34:34 2020 +0800
+
+    My Vote Page
+
+commit 24269284df6d98af0575a809787aa807406a218c
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 15:08:27 2020 +0800
+
+    Vote Page and Database Update
+
+commit c2c2d6f1e27fdd9b0c33e325eeab28afe7585a0b
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 25 14:04:21 2020 +0800
+
+    Database Migration and merge Addition Branch (without Admin)
+
+commit 00a77f35e75804736533c3e0fce774c40e0d1dc5
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sun May 24 02:27:55 2020 +0800
+
+    Arrange Files
+
+commit 4722a9a5986a2b49bdccd98046a6568346c98ae5
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sun May 24 02:08:11 2020 +0800
+
+    Format
+
+commit 185d448fd1d6e5f37acb317b440bdf23e5e11696
+Merge: ab964c6 67a8124
+Author: Tommy Zhang <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 21:31:44 2020 +0800
+
+    Merge pull request #8 from Besttz/RickyXXX-flask
+    
+    Second Version
+
+commit 67a81242a82df90cdb1fdc4dc4860e3a74223999
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 13:31:19 2020 +0000
+
+    Merge Preparation
+
+commit ab964c6c4528217fff66267d1b80d2ce8bc32a18
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 13:29:53 2020 +0000
+
+    Merge Prepare
+
+commit 0a7f2f1c6fe71cd696759868bc8c75c3cd78441f
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 13:21:52 2020 +0000
+
+    Micro Change Template
+
+commit 61b3b809e6b350a039d2e4f04b40d1160d8296b9
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Thu May 21 17:32:32 2020 +0800
+
+    second version
+
+commit 8810d066eda136d1b3fc6f58a99073dcd5ddd4b9
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 09:21:02 2020 +0000
+
+    Merge Base
+
+commit b58353ec80490d7f78314320a94725327e3bdc04
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 07:27:56 2020 +0000
+
+    Change folder structure
+
+commit d475f5c5a056a00d3e5e364727e67d6074d63bf8
+Merge: 5608d2d 0243791
+Author: Tommy Zhang <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 14:44:54 2020 +0800
+
+    Merge pull request #7 from Besttz/Sabrina_front-end
+    
+    Sabrina front end
+
+commit 5608d2d4c07b434d408e48bd189f719eb0ea0d4c
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 06:43:59 2020 +0000
+
+    Merge Sabrina
+
+commit b5d1870953e6f02c29f0cb6a5a6dfad905c58388
+Merge: b5fef6b a999d25
+Author: Tommy Zhang <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 14:17:11 2020 +0800
+
+    Merge pull request #6 from Besttz/RickyXXX-patch-1
+    
+    Merge Ricky
+
+commit a999d25776e25963d3fc76df374ac281722b898e
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 06:16:12 2020 +0000
+
+    Add Git Ignore
+
+commit b5fef6b4eeb760f5409982078aa7e00b96405e46
+Merge: eda5cca 6af24af
+Author: Tommy Zhang <12153492+Besttz@users.noreply.github.com>
+Date:   Thu May 21 14:05:52 2020 +0800
+
+    Merge pull request #5 from Besttz/flask
+    
+    Flask
+
+commit 11066195fdad4c99b2d6559b08f66f7fce1bc93f
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Sun May 17 23:44:34 2020 +0800
+
+    first version of candidate info page
+
+commit 02437918e51c15857ba6033a1d69fc1202489bd0
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Sun May 17 23:22:38 2020 +0800
+
+    add admin pages
+
+commit 94b453f0b6eb4a3390371d90a3fb9cd816384351
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Sun May 17 21:54:50 2020 +0800
+
+    admin page
+
+commit beec7154e5254972b0ab987ba3e9e8ebbb1c713b
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Sun May 17 21:41:03 2020 +0800
+
+    simple flask
+
+commit 6af24afb241590a38ca3737069cb054a4b523724
+Author: Zhenyu Yang <50858833+yzyjsjem@users.noreply.github.com>
+Date:   Fri May 15 00:35:19 2020 +1000
+
+    second submit
+
+commit e0d53f87d7f13368ea9433cce67cc51e2f5cd104
+Author: Zhenyu Yang <50858833+yzyjsjem@users.noreply.github.com>
+Date:   Fri May 15 00:06:22 2020 +1000
+
+    basic user info
+
+commit 3f35d7f1770b74445a3171bc5bbc2d42f26efbfb
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Wed May 13 22:44:08 2020 +0800
+
+    add My Vote, My Q&A pages
+
+commit 9c8376936ffcbbcb22489b2b2915a9da77885093
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Tue May 12 10:26:29 2020 +0000
+
+    Register Function
+
+commit 927e886c04ae57ff2611ce679ae4f13d0134ff0a
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Tue May 12 09:26:50 2020 +0000
+
+    User login and  log out
+
+commit 2758363a1e79c4aba5c37060319aed9811a1bf5e
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Tue May 12 00:06:21 2020 +0800
+
+    simple user_profile page
+
+commit 40535481a13c6b41aad2bb622cf1c5be29397377
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 11 05:03:00 2020 +0000
+
+    Password Hashing Added
+
+commit cca6894763064f932e3383dd2862dd3578380fb2
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Mon May 11 04:52:48 2020 +0000
+
+    Database Builded
+
+commit 3b145af1c17bdbaff9c4628e7d54ad5a55fb7fc5
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sun May 10 15:32:17 2020 +0000
+
+    Database Environment Establish
+
+commit 00e0e7a6d3b3c97a747f4a0aeaee48df0a151a0e
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sat May 9 14:07:28 2020 +0000
+
+    remove front end files
+
+commit eda5ccaf703b0025dce0e005964e2cee43b2dea0
+Merge: 2c42396 4152a78
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sat May 9 13:58:12 2020 +0000
+
+    Merge branch 'flask'
+
+commit 4152a781a370075700ef9361fcd10b3567f68455
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sat May 9 13:54:24 2020 +0000
+
+    Merge to master
+
+commit 5d409be846a4e336ab96ab295cb05c1b931d6f25
+Merge: bee72a7 d2408c5
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sat May 9 13:13:08 2020 +0000
+
+    Merge branch 'flask' of github.com:Besttz/CITS3403II into flask
+
+commit bee72a76721fbbed87cf2e7362971d1dd9726ae3
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sat May 9 13:12:59 2020 +0000
+
+    1.0.1 Format
+
+commit d2408c520aacfd33f10e9ce033281e6ba631399a
+Author: Zhenyu Yang <50858833+yzyjsjem@users.noreply.github.com>
+Date:   Sat May 9 21:01:48 2020 +0800
+
+    Delete app.py.zhenyu
+
+commit adddcc9256ee7291b0842c6aa8aa834b40a0f628
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Sat May 9 12:32:16 2020 +0000
+
+    1.0 Rebuild Flask Environment and structure
+
+commit efc0e6a3d306ab00010129c800dbb0c8737f5cbc
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Fri May 8 01:22:45 2020 +0800
+
+    modified index, signup & login pages
+
+commit 19a62baff08fa7be328ca50e59df979dea26112d
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Fri May 8 01:06:34 2020 +0800
+
+    Delete index.html
+
+commit a1effbd964fb7b306d5072d04e3df50fea2a29e0
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Fri May 8 01:06:02 2020 +0800
+
+    Delete index.css
+
+commit 05e655354f98f5f9cb0892d4797e40851eefa2a7
+Author: Zhenyu Yang <50858833+yzyjsjem@users.noreply.github.com>
+Date:   Fri May 8 02:24:06 2020 +1000
+
+    2.0
+
+commit 25a57d8149ac3f799e3a3f71d00fd09324428054
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Thu May 7 01:16:34 2020 +0800
+
+    first version of sign up page
+
+commit f9d0821a8a8e917d8b13ec431cdcb2a0a6537a89
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Wed May 6 23:31:39 2020 +0800
+
+    Update login.html
+
+commit d82b46e59c4da12941e98772fd5165b236c3a7a2
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Wed May 6 23:30:47 2020 +0800
+
+    Update login.css
+
+commit de6116b312a8d0a69b1ff6c00ef1015f8c2c0a27
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Wed May 6 23:19:26 2020 +0800
+
+    first version of login page
+
+commit d960f67f8e1bd9e41df63acb98ffc384e2b18efb
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Tue May 5 16:07:27 2020 +0000
+
+    update .gitignore
+
+commit 805d8afeb9262f37689066286ee0cc6a42702e83
+Author: Besttz <12153492+Besttz@users.noreply.github.com>
+Date:   Tue May 5 15:59:51 2020 +0000
+
+    Add Git Ignore
+
+commit 2c4239629cc1e67babbe9659b3028ae4aebac881
+Merge: fd0f4bc 679367d
+Author: Tommy Zhang <12153492+Besttz@users.noreply.github.com>
+Date:   Tue May 5 23:41:57 2020 +0800
+
+    Merge pull request #1 from Besttz/RickyXXX-patch-1
+    
+    first version of home page
+
+commit 2f9f89b0c8827345c9332609a514187f213882c4
+Author: Zhenyu Yang <50858833+yzyjsjem@users.noreply.github.com>
+Date:   Mon May 4 20:42:24 2020 +1000
+
+    first try of flask
+
+commit 679367d56c05056cb6b4ff6ac66b9d14fe29f22e
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Sun May 3 02:02:58 2020 +0800
+
+    Add files via upload
+    
+    first version
+
+commit fd0f4bca29a0976c24526f84dc3631aeb95b8b52
+Author: SabrinaWan <32283743+SabrinaWan@users.noreply.github.com>
+Date:   Sun May 3 01:37:39 2020 +0800
+
+    Add files via upload
+    
+    modified index page
+
+commit 92c546d6e66fdd192031540901b812e78c77f0fc
+Author: RickyXXX <50820066+RickyXXX@users.noreply.github.com>
+Date:   Sat May 2 21:38:23 2020 +0800
+
+    Add files via upload
+    
+    the bais frame of home page
+
+commit d118c6bccb1fb5d5c07d9779ff3be0a9f8e83982
+Author: Tommy Zhang <12153492+Besttz@users.noreply.github.com>
+Date:   Mon Apr 27 21:49:51 2020 +0800
+
+    Initial commit
