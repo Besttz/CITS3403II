@@ -17,3 +17,9 @@ div.container p.h2, a{
 div.container ul {
   text-align: justify;
 }
+#Text,#Text2, #title,#headText {
+  display: none;
+}
+.part2 {
+  min-height: 20vh;
+}

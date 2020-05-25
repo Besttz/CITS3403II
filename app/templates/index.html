@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script src="{{ url_for('static',filename='scripts/index.js') }}"> </script>
 <!--my css -->
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='index.css') }}" />
 
@@ -30,7 +31,7 @@
   
   </div>
 </div><br />
-<div class="container">
+<div id="headText"class="container">
   <div class="row" style="text-align: center;">
     <div class="col-md-4">
       <img src="https://www.uwastudentguild.com/assets/icons/clubsteal.svg" alt="icon" />
@@ -72,21 +73,22 @@
 <hr /><br />
 
 
-<div class="container">
+<div class="container part2">
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-      <p class="h2">
+      <p id="title"class="h2">
         Welcome to Guild Voting System!
       </p>
-      <p>
+      <p id="Text">
         The Guild Elections, an annual event to elect the official Office Bearers and Ordinary Guild Councillors for the
         next year.<br />
-      <ul>
+      </p>
+      <ul id="Text2">
         <li>Hi students! See the candidates' infos, sign up and vote for your favorite candidates! Once you've done, check your vote history and see the newest updated ranking!</li><br />
         <li>If you are an administrator, sign in and manage the candidates' and students' accounts!</li>
       </ul>
-      </p>
+      
     </div>
     <div class="col-md-1"></div>
   </div>
