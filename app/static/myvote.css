@@ -1,3 +1,12 @@
-#myvote{
-    
+.progress{
+ margin: 15px auto;
+}
+.btn{
+    margin:15px auto;
+}
+h2{
+    font-weight: 500;
+}
+h3{
+    font-weight: 400;
 }

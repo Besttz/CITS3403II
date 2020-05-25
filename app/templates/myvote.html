@@ -22,13 +22,17 @@
             <div class="card-body">
               <h4 class="card-title">{{row.name}}</h4>
               <p class="card-text">{{row.description}}</p>
-              <a href="#" class="btn btn-primary btn-card">See Profile</a>
             </div>
           </div>
     </div>
     <div id="myvote" class="col-md-8" style="text-align:left">
       <h2>YOU HAVE VOTED:</h2>
       <h2>{{row.name}}</h2>
+      <h3>from {{row.group.name}}</h3>
+      <p>{{number}} prople have same option with you!</p>
+      <div class="progress" style="height:30px">
+        <div class="progress-bar" style="width:{{progress}}%;height30px">{{progress}}%</div>
+      </div>
       <a href="{{ url_for('vote') }}" class="btn btn-primary ">Change Your Mind?</a>
 
     </div>

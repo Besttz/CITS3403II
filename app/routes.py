@@ -111,7 +111,7 @@ def candidate():
 
 
 @app.route('/vote', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def vote():
     form = VoteForm()
     form.preference.choices = [(candidate.id, candidate.name)
@@ -121,8 +121,16 @@ def vote():
         db.session.commit()
         flash('Thanks for your vote!', 'success')
         return redirect(url_for('myvote'))
+    rowss = Candidate.query.all()
     rows = Candidate.query.all()
-    return render_template('vote.html', title='Vote Now',rows=rows, form=form)
+
+    if len(rows)>7:
+        rows = rowss[0:4]
+        row1 = rowss[4:]
+    else:
+        row1 = []
+
+    return render_template('vote.html', title='Vote Now',rows=rows, form=form,row1=row1)
 
 @app.route('/myvote', methods=['GET', 'POST'])
 @login_required
@@ -130,7 +138,10 @@ def myvote():
     row = Candidate.query.filter_by(id=current_user.preference).first()
     if not row:
         return redirect(url_for('vote'))
-    return render_template('myvote.html', title='My Vote',row=row)
+    number = len(row.bevoted_id)
+    progress = int(len(row.bevoted_id)/len(User.query.all())*100)
+
+    return render_template('myvote.html', title='My Vote',row=row,number=number,progress=progress)
 
 @app.route('/can/<name>', methods=['GET', 'POST'])
 @login_required
