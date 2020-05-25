@@ -28,6 +28,11 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Repeated email')
 
 
+class VoteForm(FlaskForm):
+    preference = SelectField('Which candidates you like?', choices=[
+    ], validators=[DataRequired()], coerce=int)
+    submit = SubmitField('Decided')
+
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])

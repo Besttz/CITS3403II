@@ -2,7 +2,7 @@ import os
 import secrets
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from app.forms import *
 from app.models import User, Candidate
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_admin.contrib.sqla import ModelView
@@ -114,6 +114,15 @@ def candidate():
 
 
 @app.route('/vote', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def vote():
-    return render_template('vote.html', title='Vote Now')
+    form = VoteForm()
+    form.preference.choices = [(candidate.id, candidate.name)
+                               for candidate in Candidate.query.all()]
+    if form.validate_on_submit():
+        current_user.preference = form.preference.data
+        db.session.commit()
+        flash('Thanks for your vote!', 'success')
+        return redirect(url_for('account'))
+    rows = Candidate.query.all()
+    return render_template('vote.html', title='Vote Now',rows=rows, form=form)

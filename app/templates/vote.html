@@ -1,9 +1,51 @@
 {% extends "base.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vote.css') }}" />
+
 <div class="jumbotron text-center">
   <h1>Vote</h1>
   <p>
     Welcome to vote section. Check the Position and Candidators below and select
     your vote number.
   </p>
+</div>
+<div>
+  <div class="card-deck" style="margin:0 10%">
+    {% for row in rows %}
+
+    <div class="card" style="width:200px">
+      <img
+        class="card-img-top"
+        src="{{ url_for('static',filename='img/'+row.profile) }}"
+        alt="Card image"
+      />
+      <div class="card-body">
+        <h4 class="card-title">{{row.name}}</h4>
+        <p class="card-text">{{row.description}}</p>
+        <a href="#" class="btn btn-primary btn-card">See Profile</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <form method="POST" action="" enctype="multipart/form-data">
+  {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+          <div class="form-group">
+            {{ form.preference.label(class="form-control-label")}}
+            {% if form.preference.errors %}
+            {{ form.preference(class="form-control-lg form-control is-invalid")}}
+
+            <div class="invalid-feedback">
+                {% for error in form.preference.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.preference}}
+            {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.submit(class="btn btn-outline-info")}}
+      </div>
+  </form>
 </div>
 {% endblock content%}

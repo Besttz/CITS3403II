@@ -16,6 +16,9 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 migrate = Migrate(app, db)
+DATABASE_URI = getattr(app.config, 'SQLALCHEMY_DATABASE_URI', '')
+is_sqlite = DATABASE_URI.startswith('sqlite:')
+migrate.init_app(app, db, render_as_batch=is_sqlite)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 admin = Admin(app, template_mode='bootstrap3')

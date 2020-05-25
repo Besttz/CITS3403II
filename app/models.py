@@ -30,14 +30,17 @@ class Candidate(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     description = db.Column(db.String(120), nullable=False)
     bevoted_id = db.relationship('User', backref='candidate', lazy=True)
+    group_id = db.Column(db.Integer, db.ForeignKey('group.id'))
+    profile = db.Column(db.String(40), default='default.jpg')
 
     def __repr__(self):
         return f"Candidate('{self.name}', '{self.email}')"
 
 
 class Group (db.Model):
-     id = db.Column(db.Integer, primary_key=True)
-     name = db.Column(db.String(20), unique=True, nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=True, nullable=False)
+    member = db.relationship('Candidate', backref='group', lazy=True)
 
 
 # admin.add_view(ModelView(User, db.session))
