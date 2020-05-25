@@ -35,6 +35,11 @@ class Candidate(db.Model):
         return f"Candidate('{self.name}', '{self.email}')"
 
 
+class Group (db.Model):
+     id = db.Column(db.Integer, primary_key=True)
+     name = db.Column(db.String(20), unique=True, nullable=False)
+
+
 # admin.add_view(ModelView(User, db.session))
 # admin.add_view(ModelView(Candidate, db.session))
 
@@ -54,3 +59,4 @@ class MyModelView(ModelView):
 
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Candidate, db.session))
+admin.add_view(MyModelView(Group, db.session))

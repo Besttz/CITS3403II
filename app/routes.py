@@ -21,13 +21,13 @@ def register():
         return redirect(url_for('index'))
 
     form = RegistrationForm()
-    form.preference.choices = [(candidate.id, candidate.name)
-                               for candidate in Candidate.query.all()]
+    # form.preference.choices = [(candidate.id, candidate.name)
+    #                            for candidate in Candidate.query.all()]
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(
             form.password.data).decode("utf-8")
         user = User(username=form.username.data, email=form.email.data,
-                    password=hashed_password, preference=form.preference.data)
+                    password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash(f'Welcome {form.username.data}! You can Log in now!', 'success')
@@ -111,3 +111,9 @@ def candidate():
                            rows=rows,
                            can_name=can_name,
                            can_value=can_value)
+
+
+@app.route('/vote', methods=['GET', 'POST'])
+@login_required
+def vote():
+    return render_template('vote.html', title='Vote Now')
