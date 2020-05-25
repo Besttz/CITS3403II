@@ -25,7 +25,29 @@
       </div>
     </div>
     {% endfor %}
-  </div><br/>
+  </div>
+  <br/>
+
+  {% if row1 %}
+  <div class="card-deck" style="margin:0 10%">
+  {% for row in row1 %}
+
+    <div class="card" style="width:200px">
+      <img
+        class="card-img-top"
+        src="{{ url_for('static',filename='img/'+row.profile) }}"
+        alt="Card image"
+      />
+      <div class="card-body">
+        <h4 class="card-title">{{row.name}}</h4>
+        <h5 class="card-title">{{row.group.name}}</h5>
+        <p class="card-text">{{row.description}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {%endif%}
+  
   <form method="POST" action="" enctype="multipart/form-data">
   {{ form.hidden_tag() }}
         <fieldset class="form-group">
