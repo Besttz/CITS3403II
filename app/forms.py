@@ -29,7 +29,7 @@ class RegistrationForm(FlaskForm):
 
 
 class VoteForm(FlaskForm):
-    preference = SelectField('Which candidates you like?', choices=[
+    preference = SelectField('Which candidate do you prefer?', choices=[
     ], validators=[DataRequired()], coerce=int)
     submit = SubmitField('Decided')
 
