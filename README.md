@@ -53,7 +53,7 @@ The app should now be running on [http://localhost:5000](http://localhost:5000),
 `email-validator`
 
 # Admin
-You can create an admin directly by **admin page** or uses:
+You can create an admin account directly by **admin page** or use:
 
 `python`
 
