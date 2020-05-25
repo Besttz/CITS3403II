@@ -3,11 +3,17 @@ author: Haoran, Tommy, Zhenyu & Sabrina
 
 # Introduction of the application
 The application mainly provides 6 functions to the users -- Registration, Log in, Candidate info, Vote, Account and Admin.
+
 If users want to vote for the candidate they like, they are required to register in **register page** first. The username and email are unique in the sqlite database, thus when registering, if your username or email has been used by others, you need to use a new one.
+
 After you finish the registeration, the app would redirect you to the **login page**. 
+
 Now, you can vote for your favorite candidate in **vote page**! In this page, you can see the candidate informations, and make your voting choice.
-You voting result would appear in **myvote page**. If you change your mind, you can go to the **vote page** and vote again. The final result depends on your last choice. If you go back to **candidate info page**, you can see the votes of each candidates. There is a bar chart in this page to let users have an intuitive feeling for the votes of each candidates. 
+
+Your voting result would appear in **myvote page**. If you change your mind, you can go to the **vote page** and vote again. The final result depends on your last choice. If you go back to **candidate info page**, you can see the votes of each candidates. There is a bar chart in this page to let users have an intuitive feeling for the votes of each candidates. 
+
 In **account page**, you can change your email and username and see your vote history.
+
 And also, for the **admin page**, only when you are logged in as an administator can you access this page. In this page, you can see all the informations about the candidates and users, and to modify them.
 
 # Launching The Application
