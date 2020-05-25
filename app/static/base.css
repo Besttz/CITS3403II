@@ -9,10 +9,12 @@ body {
 }
 
 .logo svg {
-  width: 98px;
-  height: 110px;
+  width: 80px;
+  height: 90px;
 }
-
+h2{
+  font-weight: 500;
+}
 .icon-bar {
   width: 22px;
   height: 2px;
