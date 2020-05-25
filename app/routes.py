@@ -128,6 +128,8 @@ def vote():
 @login_required
 def myvote():
     row = Candidate.query.filter_by(id=current_user.preference).first()
+    if not row:
+        return redirect(url_for('vote'))
     return render_template('myvote.html', title='My Vote',row=row)
 
 @app.route('/can/<name>', methods=['GET', 'POST'])
