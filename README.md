@@ -1,7 +1,15 @@
 # CITS3403 GUILD Voting System
-author:Haoran Zhang(22289211)
+author:Haoran, Tommy, Zhenyu & Sabrina
+
 # Introduction of the application
-The application provides five main functions to the users, which are Registration, Log in, Candidate info, Account, Admin. You can check all the information about the candidates in **candidate info** page. And also, you can see the votes of each candidates. I made a bar chart in **candidate info** page to let users have intuitive feelings for the votes of each candidates. If users want to vote the candidate they like, they are required to register. I put voting part into the **register page**. It means that when you register, you would vote at the same time(you must select one candidate). The username and email are unique in the sqlite database. If your email has been used by other, you will be required to use a different email. After you finish the register, the app would redirect you to **login page**. You voting result would appear in **account page**. In **account page**, you can change your email and username. For **admin page**, only you are login in as a administator can you access this page. In this page, you can see all the infromation about candidate and user, and also, you create or delete any candidate or user.
+The application mainly provides 6 functions to the users -- Registration, Log in, Candidate info, Vote, Account and Admin.
+If users want to vote for the candidate they like, they are required to register in **register page** first. The username and email are unique in the sqlite database, thus when registering, if your username or email has been used by others, you need to use a new one.
+After you finish the registeration, the app would redirect you to the **login page**. 
+Now, you can vote for your favorite candidate in **vote page**! In this page, you can see the candidate informations, and make your voting choice.
+You voting result would appear in **myvote page**. If you change your mind, you can go to the **vote page** and vote again. The final result depends on your last choice. If you go back to **candidate info page**, you can see the votes of each candidates. There is a bar chart in this page to let users have an intuitive feeling for the votes of each candidates. 
+In **account page**, you can change your email and username and see your vote history.
+And also, for the **admin page**, only when you are logged in as an administator can you access this page. In this page, you can see all the informations about the candidates and users, and to modify them.
+
 # Launching The Application
 **Install Python:** `python3` `exit()`
 
